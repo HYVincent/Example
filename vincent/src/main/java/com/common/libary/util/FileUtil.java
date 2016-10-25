@@ -456,7 +456,7 @@ public class FileUtil {
         }
         return count;
     }
-
+//获取字节数组根据输入流
     public static byte[] toBytes(InputStream in) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         int ch;

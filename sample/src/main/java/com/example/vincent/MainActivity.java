@@ -8,10 +8,13 @@ import android.widget.TextView;
 
 
 import com.common.libary.log.MyLog;
+import com.common.libary.util.AppUtil;
+import com.common.libary.util.DateUtil;
 import com.common.libary.util.ExitUtil;
+import com.common.libary.util.FileUtil;
 import com.common.libary.util.NotificationUtils;
 import com.common.libary.util.ScreenOpenCloseListener;
-import com.common.libary.util.SystemUtilt;
+import com.common.libary.util.SystemUtil;
 import com.common.libary.util.ToastUtil;
 
 import butterknife.BindView;
@@ -34,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         MyLog.d("MainActivity", "初始化");
+        if(AppUtil.isBackground(this)){
+            MyLog.d(MainActivity.class.getSimpleName(),"后台");
+        }else {
+            MyLog.d(MainActivity.class.getSimpleName(),"前台");
+        }
+        MyLog.d("天数",String.valueOf(DateUtil.getDaysOfCurMonth()));
+
+        if(FileUtil.checkExternalSDExists()){//检查时候有外置ＳＤ卡
+            MyLog.d(MainActivity.class.getSimpleName(),"是");
+        }else {
+            MyLog.d(MainActivity.class.getSimpleName(),"否");
+        }
 
         listener = new ScreenOpenCloseListener(this);
         listener.begin(new ScreenOpenCloseListener.ScreenStateListener() {
@@ -53,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MyLog.d("屏幕分辨率：", SystemUtilt.getScreenParameterHeight(this) + "*" + SystemUtilt.getScreenParameterHeight(this));
+        MyLog.d("屏幕分辨率：", SystemUtil.getScreenParameterHeight(this) + "*" + SystemUtil.getScreenParameterHeight(this));
     }
 
     @Override

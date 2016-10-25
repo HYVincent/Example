@@ -1267,7 +1267,7 @@ public class DateUtil implements Serializable {
 	//  timeStamp=1417792627
 	//  date=2014-12-05 23:17:07
 	//  1417792627
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		String timeStamp = timeStamp();
 		System.out.println("timeStamp="+timeStamp);
 
@@ -1277,5 +1277,5 @@ public class DateUtil implements Serializable {
 		String timeStamp2 = date2TimeStamp(date, "yyyy-MM-dd HH:mm:ss");
 		System.out.println(timeStamp2);
 	}
-
+*/
 }

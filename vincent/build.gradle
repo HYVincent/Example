@@ -31,4 +31,6 @@ dependencies {
 
     compile 'com.orhanobut:logger:1.8'//logger日志工具
 
+    compile 'com.navercorp.volleyextensions:volley-views:2.0.1'
+
 }

@@ -134,26 +134,6 @@ public class AppUtil {
 
 
 	/**
-	 *  判断当前应用程序处于前台还是后台
-	 *
-	 *  需要权限： android.permission.GET_TASKS
-	 */
-	public static boolean isApplicationBroughtToBackground(final Context context) {
-		ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-		List<RunningTaskInfo> tasks = am.getRunningTasks(1);
-		if (!tasks.isEmpty()) {
-			ComponentName topActivity = tasks.get(0).topActivity;
-			if (!topActivity.getPackageName().equals(context.getPackageName())) {
-				Log.d("tag", " application is background ");
-				return true;
-			}
-		}
-
-		Log.d("tag", " application is foreground ");
-		return false;
-	}
-
-	/**
 	 * 检测当前运行的应用第一个启动的activity是否指定的activity
 	 * 
 	 * @param context
@@ -220,6 +200,11 @@ public class AppUtil {
 		return getPackageInfo(context).versionCode;
 	}
 
+	/**
+	 * 获取包名
+	 * @param context
+	 * @return
+     */
 	private static PackageInfo getPackageInfo(Context context) {
 		PackageInfo pi = null;
 

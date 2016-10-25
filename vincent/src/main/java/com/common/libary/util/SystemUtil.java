@@ -68,9 +68,9 @@ import static android.content.Context.TELEPHONY_SERVICE;
  * @author Vincent QQ1032006226
  *         created at 2016/9/26 9:13
  */
-public class SystemUtilt {
+public class SystemUtil {
 
-    private static final String TAG = SystemUtilt.class.getSimpleName();
+    private static final String TAG = SystemUtil.class.getSimpleName();
 
     /**
      * 获取手机型号
@@ -695,7 +695,7 @@ public class SystemUtilt {
             context.startActivity(intent);
         }catch (SecurityException e){
             ToastUtil.showSingleTextToast(context,errMsg);
-            MyLog.d(SystemUtilt.class.getSimpleName(),"安全异常，打开失败");
+            MyLog.d(SystemUtil.class.getSimpleName(),"安全异常，打开失败");
             e.printStackTrace();
         }catch (Exception e){
             ToastUtil.showSingleTextToast(context,errMsg);
@@ -806,23 +806,23 @@ public class SystemUtilt {
                 //打印属性信息，包括访问控制修饰符，类型及属性名
                 System.out.println(field);
 //                System.out.println("修饰符：" + Modifier.toString(field.getModifiers()));
-                MyLog.d(SystemUtilt.class.getSimpleName(),"修饰符：" + Modifier.toString(field.getModifiers()));
-                MyLog.d(SystemUtilt.class.getSimpleName(),"类型：" + field.getType());
-                MyLog.d(SystemUtilt.class.getSimpleName(),"属性名：" + field.getName());
+                MyLog.d(SystemUtil.class.getSimpleName(),"修饰符：" + Modifier.toString(field.getModifiers()));
+                MyLog.d(SystemUtil.class.getSimpleName(),"类型：" + field.getType());
+                MyLog.d(SystemUtil.class.getSimpleName(),"属性名：" + field.getName());
             }
             //获取该类中的所有方法
             Method[] methods = clazz.getDeclaredMethods();
             for (Method method : methods) {
                 //打印方法签名
                 System.out.println(method);
-                MyLog.d(SystemUtilt.class.getSimpleName(),method.toString());
-                MyLog.d(SystemUtilt.class.getSimpleName(),"修饰符：" + Modifier.toString(method.getModifiers()));
-                MyLog.d(SystemUtilt.class.getSimpleName(),"方法名：" + method.getName());
-                MyLog.d(SystemUtilt.class.getSimpleName(),"返回类型：" + method.getReturnType());
+                MyLog.d(SystemUtil.class.getSimpleName(),method.toString());
+                MyLog.d(SystemUtil.class.getSimpleName(),"修饰符：" + Modifier.toString(method.getModifiers()));
+                MyLog.d(SystemUtil.class.getSimpleName(),"方法名：" + method.getName());
+                MyLog.d(SystemUtil.class.getSimpleName(),"返回类型：" + method.getReturnType());
                 //获取方法的参数对象
                 Class<?>[] clazzes = method.getParameterTypes();
                 for (Class<?> class1 : clazzes) {
-                    MyLog.d(SystemUtilt.class.getSimpleName(),"参数类型：" + class1);
+                    MyLog.d(SystemUtil.class.getSimpleName(),"参数类型：" + class1);
                 }
             }
             //通过Class对象创建实例
@@ -854,7 +854,7 @@ public class SystemUtilt {
                 public void run() {
                     try {
                         Thread.sleep(500);
-                        MyLog.d(SystemUtilt.class.getSimpleName(),"尝试弹出软键盘");
+                        MyLog.d(SystemUtil.class.getSimpleName(),"尝试弹出软键盘");
                         InputMethodManager imm = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
                         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
                     } catch (InterruptedException e) {

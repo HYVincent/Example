@@ -39,7 +39,7 @@ public class NotificationUtils {
         try {
             mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context);
-            Intent resultIntent = new Intent(context, SystemUtilt.getReflectInstance(context,activity).getClass());
+            Intent resultIntent = new Intent(context, SystemUtil.getReflectInstance(context,activity).getClass());
 //            mBuilder.setAutoCancel(false);//设置消息点击之后取消
             resultIntent.putExtra("title",title);
             resultIntent.putExtra("msg",msg);

@@ -40,6 +40,11 @@ public class ToastUtil {
     public static void showDefaultToast(Context context,String msg){
         Toast.makeText(context.getApplicationContext(),msg,Toast.LENGTH_LONG).show();
     }
+
+    public static void showDefaultToastShort(Context context,String msg){
+        Toast.makeText(context.getApplicationContext(),msg,Toast.LENGTH_SHORT).show();
+    }
+
     /**在屏幕中间弹出来
      *@param context
      * @param msg 
@@ -48,6 +53,17 @@ public class ToastUtil {
      */
     public static void showDefaultToastCenter(Context context,String msg){
         toast=Toast.makeText(context,msg,Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER,0,0);
+        toast.show();
+    }
+
+    /**
+     * 屏幕中间  short
+     * @param context
+     * @param msg
+     */
+    public static void showCenterToastShort(Context context,String msg){
+        toast=Toast.makeText(context,msg,Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER,0,0);
         toast.show();
     }
