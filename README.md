@@ -105,8 +105,20 @@ public class MyApplication extends Application {
 </br>getDateByAddFltHour(float flt) 返回当前时间加实数小时后的日期时间。
 </br> getDateByAddHour(String datetime, int minute) 返回指定时间加指定小时数后的日期时间。
 </br> getDiffHour(String startTime, String endTime)  获取两个时间串时间的差值，单位为小时
-</br>
-</br>
+</br>getYearSelect(String selectName, String value,int startYear, int endYear) 返回年份的下拉框。
+</br>getYearSelect(String selectName, String value,int startYear, int endYear, boolean hasBlank) 返回年份的下拉框
+</br>getYearSelect(String selectName, String value,int startYear, int endYear, boolean hasBlank,String js) 返回年份的下拉框。
+</br> String getYearSelect(String selectName, String value,int startYear, int endYear, String js) 返回年份的下拉框
+</br>getMonthSelect(String selectName, String value,boolean hasBlank) 获取月份的下拉框
+</br>getMonthSelect(String selectName, String value,boolean hasBlank, String js)获取月份的下拉框
+</br>getDaySelect(String selectName, String value,boolean hasBlank)获取天的下拉框，默认的为1-31。
+</br>getDaySelect(String selectName, String value,boolean hasBlank, String js)获取天的下拉框，默认的为1-31
+</br>countWeekend(String startDate, String endDate) 计算两天之间有多少个周末（这个周末，指星期六和星期天，一个周末返回结果为2，两个为4，以此类推。）（此方法目前用于统计司机用车记录。）
+</br> getDiffDays(String startDate, String endDate) 返回两个日期之间相差多少天。
+</br>getArrayDiffDays(String startDate,String endDate) 返回两个日期之间的详细日期数组(包括开始日期和结束日期)。
+</br>timeStamp2Date(String seconds,String format) 时间戳转换成日期格式字符串
+</br>date2TimeStamp(String date_str,String format) 日期格式字符串转换成时间戳
+</br> timeStamp()取得当前时间戳（精确到秒）
 </br>
 </br>
 </br>
