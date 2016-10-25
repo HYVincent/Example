@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_hello:
                 MyLog.d("Click");
-                NotificationUtils.sendNotification(MainActivity.this,"com.example.vincent.MainActivity",R.mipmap.ic_launcher,"哈哈","error");
+                NotificationUtils.sendNotification(MainActivity.this,"com.example.vincent.MainActivity",R.mipmap.ic_launcher,"哈哈","消息..");
 //                SystemUtilt.goXiaoMiPermissionManagerActivity(MainActivity.this,"打开失败");
                 break;
         }
