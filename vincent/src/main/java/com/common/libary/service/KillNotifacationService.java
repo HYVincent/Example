@@ -17,7 +17,7 @@ import com.vincent.libary.R;
  * Created by Vincent on 2016/10/25.
  */
 
-public class HintNotifacationService extends Service {
+public class KillNotifacationService extends Service {
     private boolean sPower=true;
 
     @Nullable
@@ -35,7 +35,7 @@ public class HintNotifacationService extends Service {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                SystemClock.sleep(1000);
+                SystemClock.sleep(200);
                 stopForeground(true);
                 NotificationManager manager =
                         (NotificationManager) getSystemService(NOTIFICATION_SERVICE);

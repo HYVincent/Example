@@ -136,7 +136,7 @@ public class JulieService extends Service {
         } else {
             startForeground(250, new Notification());//4.3一下空通知保活
         }
-        startService(new Intent(JulieService.this,HintNotifacationService.class));
+        startService(new Intent(JulieService.this,KillNotifacationService.class));
     }
 
     protected void play() {
