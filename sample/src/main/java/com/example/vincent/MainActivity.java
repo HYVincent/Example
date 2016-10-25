@@ -1,5 +1,6 @@
 package com.example.vincent;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.TextView;
 
 
 import com.common.libary.log.MyLog;
+import com.common.libary.service.JobCastielService;
+import com.common.libary.service.JulieService;
 import com.common.libary.util.AppUtil;
 import com.common.libary.util.DateUtil;
 import com.common.libary.util.ExitUtil;
@@ -92,8 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_hello:
                 MyLog.d("Click");
-                NotificationUtils.sendNotification(MainActivity.this,"com.example.vincent.MainActivity",R.mipmap.ic_launcher,"哈哈","消息..");
+//                NotificationUtils.sendNotification(MainActivity.this,"com.example.vincent.MainActivity",R.mipmap.ic_launcher,"哈哈","消息..");
 //                SystemUtilt.goXiaoMiPermissionManagerActivity(MainActivity.this,"打开失败");
+                startService(new Intent(MainActivity.this, JobCastielService.class));
                 break;
         }
     }
