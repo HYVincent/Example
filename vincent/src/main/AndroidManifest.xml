@@ -10,8 +10,6 @@
         android:label="@string/app_name"
         android:supportsRtl="true">
 
-        <activity android:name="com.common.libary.KeepLiveActivity"/>
-
         <service
             android:name="com.common.libary.service.JulieService"
             android:enabled="true"
