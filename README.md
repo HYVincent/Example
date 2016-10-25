@@ -208,31 +208,39 @@ public class MyApplication extends Application {
 </br>toByteArray(String s) 把字符串转为字节数组
 </br>toHexString(byte[] bytes) 字节数组转为字符串
 ####SystemUtil
-</br> getPhoneMdel()获取手机的IMEI号码，
+</br> getPhoneMdel()获取手机型号，
 </br>getPhoneManufacturer() 获取手机厂商
-</br> getVersionOs()基带版本，
+</br> getVersionOs()系统版本，
 </br> getAndroidSDKVersionStr() ＳＤＫ版本
-</br> getAndroidSDKVersionInt() SDK版本，
+</br> getAndroidSDKVersionInt() 系统版本号
 </br>getCpuName()　获取Ｃｐｕ信息
 </br>getIMEINumber(Context context) 获取ＩＭＥＩ号码
 </br>getPhoneNumber(Context context) 获取手机号码
-</br>判断应用是在前台还是后台，
-</br>得到系统可用内存，
-</br> 内置SD卡总容量，
-</br>获得内置SD卡总大小，
-</br>判断某个服务是否正在运行的Method
-</br>开启悬浮窗权限oppo手机，
-</br>判断某个APP是否安装，
-</br>跳转到华为手机管家悬浮窗权限管理页面，
-</br>跳转到华为手机管家权限管理主页，
-</br>华为手机管家自启动管理
-</br>跳转到华为手机管家关联启动页面，
-</br>跳转到受保护的app管理页面锁屏可以继续运行，
-</br>跳转到华为手机管家通知管理页面，跳转到华为手机管家清理加速页面
-</br>跳转到华为手机管家骚扰拦截页面，
-</br>通过反射获取类对象，
+</br>getBaseband_Ver() 获取基带版本
+</br>getLinuxCore_Ver() 内核版本
+</br>getInner_Ver() 内部版本
+</br>getPhoneRAM(Context context)获取手机的可用内存大小
+</br>getPhoneRAM(Context context) 获取手机总的运行内存
+</br>isRoot()判断手机是否Root
+</br>isBackground(Context context) 判断应用是在前台还是后台，
+</br>getMemFree(Context context)得到系统可用内存，
+</br> getSDSize(Context context) 内置SD卡总容量，
+</br> getSDTotalSize(Context context) 获得内置SD卡总大小，
+</br>isServiceWork(Context mContext, String serviceName) 判断某个服务是否正在运行的Method
+</br>goSetting(Context context)  开启悬浮窗权限oppo手机，
+</br>isAppInstalled(Context context, String packageName) 判断某个APP是否安装，
+</br> goHuaWeiSetting(Context context,String errMsg)跳转到华为手机管家悬浮窗权限管理页面，
+</br>goHWWindowPermission(Context context,String errMsg)跳转到华为手机管家权限管理主页，
+</br>goHWSelfMotionStartManager(Context context,String errMsg)华为手机管家自启动管理
+</br>goRelevanceStartManager(Context context,String errMsg)跳转到华为手机管家关联启动页面，
+</br>goProtectAppManager(Context context,String errMsg)跳转到受保护的app管理页面锁屏可以继续运行，
+</br>goNotificationManager(Context context,String errMsg)跳转到华为手机管家通知管理页面，跳转到华为手机管家清理加速页面
+</br>goNotificationManager(Context context,String errMsg)跳转到华为手机管家骚扰拦截页面，
+</br>goInterceptionAct(Context context,String errMsg)通过反射获取类对象，
 </br> getInputKeyboard(EditText editText) 自动弹出键盘
 </br>closeInputKeyBoard(EditText editText) 关闭软键盘
+</br>getScreenParameterWidth(Context context)获取屏幕宽度
+</br>getScreenParameterWidth(Context context)获取屏幕高度
 </br>
 ####ToastUtil
 </br>showSingleTextToast(Context context,String msg) 如果当前Toast没有消失，继续点击事件不叠加
