@@ -2,4 +2,12 @@
 <resources>
 
     <style name="PopupAnimation"></style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" >
+        <!-- Customize your theme here. -->
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    
 </resources>

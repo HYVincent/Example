@@ -1,21 +1,19 @@
 package com.example.vincent;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
+import com.common.libary.RequePermissionActivity;
 import com.common.libary.log.MyLog;
 import com.common.libary.service.JobCastielService;
-import com.common.libary.service.JulieService;
 import com.common.libary.util.AppUtil;
 import com.common.libary.util.DateUtil;
 import com.common.libary.util.ExitUtil;
 import com.common.libary.util.FileUtil;
-import com.common.libary.util.NotificationUtils;
 import com.common.libary.util.ScreenOpenCloseListener;
 import com.common.libary.util.SystemUtil;
 import com.common.libary.util.ToastUtil;
@@ -32,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnButterknife;
     @BindView(R.id.tv_hello)
     TextView tvHello;
+    @BindView(R.id.tv_go)
+    TextView tvGo;
 
 
     @Override
@@ -40,17 +40,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         MyLog.d("MainActivity", "初始化");
-        if(AppUtil.isBackground(this)){
-            MyLog.d(MainActivity.class.getSimpleName(),"后台");
-        }else {
-            MyLog.d(MainActivity.class.getSimpleName(),"前台");
+        if (AppUtil.isBackground(this)) {
+            MyLog.d(MainActivity.class.getSimpleName(), "后台");
+        } else {
+            MyLog.d(MainActivity.class.getSimpleName(), "前台");
         }
-        MyLog.d("天数",String.valueOf(DateUtil.getDaysOfCurMonth()));
+        MyLog.d("天数", String.valueOf(DateUtil.getDaysOfCurMonth()));
 
-        if(FileUtil.checkExternalSDExists()){//检查时候有外置ＳＤ卡
-            MyLog.d(MainActivity.class.getSimpleName(),"是");
-        }else {
-            MyLog.d(MainActivity.class.getSimpleName(),"否");
+        if (FileUtil.checkExternalSDExists()) {//检查时候有外置ＳＤ卡
+            MyLog.d(MainActivity.class.getSimpleName(), "是");
+        } else {
+            MyLog.d(MainActivity.class.getSimpleName(), "否");
         }
 
         listener = new ScreenOpenCloseListener(this);
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_butterknife, R.id.tv_hello})
+    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_butterknife:
@@ -98,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
 //                NotificationUtils.sendNotification(MainActivity.this,"com.example.vincent.MainActivity",R.mipmap.ic_launcher,"哈哈","消息..");
 //                SystemUtilt.goXiaoMiPermissionManagerActivity(MainActivity.this,"打开失败");
                 startService(new Intent(MainActivity.this, JobCastielService.class));
+                break;
+            case R.id.tv_go:
+                Intent intent=new Intent(MainActivity.this, RequePermissionActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

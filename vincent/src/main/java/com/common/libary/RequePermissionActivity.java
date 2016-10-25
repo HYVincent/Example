@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.common.libary.util.ToastUtil;
 
@@ -30,6 +31,11 @@ public class RequePermissionActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        LinearLayout view=new LinearLayout(this);
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        p.weight=1;
+        p.height=1;
+        setContentView(view);
         RequePermissionActivityPermissionsDispatcher.requeSelfStartUpWithCheck(this);
     }
     @NeedsPermission(Manifest.permission.RECEIVE_BOOT_COMPLETED)
