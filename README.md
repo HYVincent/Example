@@ -119,12 +119,77 @@ public class MyApplication extends Application {
 </br>timeStamp2Date(String seconds,String format) 时间戳转换成日期格式字符串
 </br>date2TimeStamp(String date_str,String format) 日期格式字符串转换成时间戳
 </br> timeStamp()取得当前时间戳（精确到秒）
+#### ExitUtil 连点两次退出
+</br>isQuit(Context context,String exitMsg) 连续点击两次退出，此方法在onBackPressed()中调用，应该去掉父类回调方法
+#### FileUtil 文件工具类
+</br>WriteProperties(Context context, String fileName, String pKey, String pValue) 写入数据 键值对存
+</br>getValueByKey(Context context, String fileName, String key) 读取数据 键值对取
+</br>getAllProperties(Context context, String fileName) 返回全部信息
+</br>delFile(String path) 删除改目录下的文件
+</br>clearAllProperties(Context context,String fileName) 根据文件名清空所有数据
+</br>write(Context context, String fileName, String content) 写文本文件 在Android系统中，文件保存在 /data/data/PACKAGE_NAME/files 目录下
+</br> writeId(Context context, String fileName, String id) 写入数据 在app私有目录下
+</br>read(Context context, String fileName) 读取文本文件
+</br>readInStream(InputStream inStream) 读取输入流
+</br>readInStream(InputStream inStream) 创建文件
+</br>writeFile(byte[] buffer, String folder,、String fileName)向手机写图片
+</br>getFileName(String filePath) 根据文件绝对路径获取文件名
+</br>getFileNameNoFormat(String filePath) 根据文件的绝对路径获取文件名但不包含扩展名
+</br>getFileFormat(String fileName) 获取文件扩展名
+</br>getFileSize(String filePath) 获取文件大小
+</br>getFileSize(long size) 获取文件大小
+</br>formatFileSize(long fileS) 转换文件大小
+</br>getDirSize(File dir) 获取目录文件大小
+</br>getFileList(File dir) 获取目录文件个数
+</br> toBytes(InputStream in) //获取字节数组根据输入流
+</br>checkFileExists(String name) 检查文件是否存在
+</br> checkFilePathExists(String path) 检查路径是否存在
+</br>getFreeDiskSpace() 计算SD卡的剩余空间
+</br> createDirectory(String directoryName) 新建目录
+</br>checkSaveLocationExists() 检查是否安装SD卡
+</br>checkExternalSDExists() 检查是否安装外置的SD卡
+</br>deleteDirectory(String fileName) 删除目录(包括：目录里的所有文件)
+</br> deleteFile(String fileName)  删除文件
+</br>deleteBlankPath(String path)  删除空目录
+</br>reNamePath(String oldName, String newName)  重命名
+</br>deleteFileWithPath(String filePath) 删除文件
+</br> clearFileWithPath(String filePath)清空一个文件夹
+</br>getSDRoot() 获取SD卡的根目录
+</br>getExternalSDRoot() 获取手机外置SD卡的根目录
+</br>listPath(String root)列出root目录下所有子目录
+</br>listPathFiles(String root) 获取一个文件夹下的所有文件
+</br> createPath(String newPath) 创建目录
+</br>getPathName(String absolutePath)  截取路径名
+</br> getAppCache(Context context, String dir) 获取应用程序缓存文件夹下的指定目录
+</br>readSDFile(String fileName) 读取SD卡中文本文件
+</br>readAssetsTxt(Context context,String fileName) 读取assets下的txt文件，返回utf-8 String
+</br>saveFile(Context c, String fileName, Bitmap bitmap) 将Bitmap 图片保存到本地路径，并返回路径
+</br>saveFile(Context c, String filePath, String fileName, Bitmap bitmap) 保存位图文件
+</br>bitmapToBytes(Bitmap bm) 将位图转换为字节数组
+</br> saveFile(Context c, String filePath, String fileName, byte[] bytes) 保存字节数组文件
+#### NotificationUtils 通知栏工具类
+</br>sendNotification(Context context, String activity, int imgId, String title, String msg) 在顶部下拉通知栏产生一个通知
+#### ScreenOpenCloseListener 屏幕监听 用户锁屏、打开屏幕、解锁
+</br>begin(ScreenStateListener listener) 开始监听
+</br>unregisterListener() 解除监听
+####SharedPreferencesUtil SharePreferences工具类
+</br>putString(String name, String value) 写入值 键值对
+</br> putLong(String name, Long value)
+</br> putInt(String name, int value) 
+</br>putBoolean(String name, Boolean value) 
+</br> remove(String name) 移除
+</br> clear() 清理数据
+</br> getLong(String key)获取值 long类型
+</br>getBoolean(String key)
+</br>getInt(String key)
+</br>getString(String key)
+</br>getLong(String key, long defValue)
+</br>getInt(String key, int defValue)
+</br> getBoolean(String key, boolean defValue)
+</br>getString(String key, String defValue)
+</br>Editor getEditor() 返回一个可编辑对象
 </br>
-</br>
-</br>
-</br>
-</br>
-</br>
+
 
 
 
