@@ -234,6 +234,13 @@ public class MyApplication extends Application {
 </br> getInputKeyboard(EditText editText) 自动弹出键盘
 </br>closeInputKeyBoard(EditText editText) 关闭软键盘
 </br>
+####ToastUtil
+</br>showSingleTextToast(Context context,String msg) 如果当前Toast没有消失，继续点击事件不叠加
+</br>showDefaultToast(Context context,String msg) 默认的Toast long
+</br>showSingleToastCenter(Context context,String msg) 屏幕中间弹出来 long
+</br>showCenterToastShort(Context context,String msg) 屏幕中间弹出来 short
+</br> showSingleTextToastLong(Context context,String msg) 不叠加 长时间显示
+
 
 
 
