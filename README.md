@@ -188,6 +188,51 @@ public class MyApplication extends Application {
 </br> getBoolean(String key, boolean defValue)
 </br>getString(String key, String defValue)
 </br>Editor getEditor() 返回一个可编辑对象
+#### StringUtil 字符串工具类
+</br>toDate(String sdate) 将字符串转位日期类型
+</br>friendly_time(String sdate) 以友好的方式显示时间
+</br>isToday(String sdate) 判断给定字符串时间是否为今日
+</br>getToday() 返回long类型的今天的日期
+</br>isEmpty(String str) 判断一个字符串是否为null或空值.
+</br>isEmptyEx(String input) 判断给定字符串是否空白串，（isEmpty的扩展方法）。 空白串是指由空格、制表符、回车符、换行符组成的字符串 若输入字符串为null或空字符串，返回true
+</br>isEmail(String email) 判断是不是一个合法的电子邮件地址
+</br>isMobileNO(String mobiles) 判断是不是一个合法的手机号码
+</br>isPhoneNumber(String isPhoneNumber) 判断输入的号码是否为合法的电话号码（包括固话，区号，手机）
+</br>isNumber(String str) 是否只是数字.
+</br>isContainChinese(String str)是否包含中文.
+</br>toInt(String str, int defValue) 字符串转整数
+</br>toInt(Object obj) 对象转整数
+</br>toLong(String obj) 对象转整数
+</br>toBool(String b) 字符串转布尔值
+</br>toConvertString(InputStream is) 将一个InputStream流转换成字符串
+</br>toByteArray(String s) 把字符串转为字节数组
+</br>toHexString(byte[] bytes) 字节数组转为字符串
+####SystemUtil
+</br> getPhoneMdel()获取手机的IMEI号码，
+</br>getPhoneManufacturer() 获取手机厂商
+</br> getVersionOs()基带版本，
+</br> getAndroidSDKVersionStr() ＳＤＫ版本
+</br> getAndroidSDKVersionInt() SDK版本，
+</br>getCpuName()　获取Ｃｐｕ信息
+</br>getIMEINumber(Context context) 获取ＩＭＥＩ号码
+</br>getPhoneNumber(Context context) 获取手机号码
+</br>判断应用是在前台还是后台，
+</br>得到系统可用内存，
+</br> 内置SD卡总容量，
+</br>获得内置SD卡总大小，
+</br>判断某个服务是否正在运行的Method
+</br>开启悬浮窗权限oppo手机，
+</br>判断某个APP是否安装，
+</br>跳转到华为手机管家悬浮窗权限管理页面，
+</br>跳转到华为手机管家权限管理主页，
+</br>华为手机管家自启动管理
+</br>跳转到华为手机管家关联启动页面，
+</br>跳转到受保护的app管理页面锁屏可以继续运行，
+</br>跳转到华为手机管家通知管理页面，跳转到华为手机管家清理加速页面
+</br>跳转到华为手机管家骚扰拦截页面，
+</br>通过反射获取类对象，
+</br> getInputKeyboard(EditText editText) 自动弹出键盘
+</br>closeInputKeyBoard(EditText editText) 关闭软键盘
 </br>
 
 
