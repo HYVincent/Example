@@ -23,7 +23,7 @@ public final class MyLog {
      */
 	public static boolean setSwitch(boolean a) {
 		logSwitch=a;
-		return logSwitch;
+		return a;
 	}
 
 	/**
