@@ -30,9 +30,9 @@ public class MyCustomBroadcastReceiver extends BroadcastReceiver {
         }else if(intent.getAction().equals("custom_broadcast_receiver")) {
             MyLog.d("自定义广播","收到自定义广播");//收到了自定义广播
             ToastUtil.showDefaultToast(context,"收到自定义广播");
-        }else if(intent.getAction().equals("android.hardware.action.NEW_PICTURE")){//产生一个新的图片，拍照的时候
+        }else if(intent.getAction().equals("android.hardware.action.NEW_PICTURE")){//产生一个新的图片，拍照的时候 测试没什么效果
             MyLog.d("自定义广播","产生了广播,图片广播"+new Date().toString());
-        }else if(intent.getAction().equals("android.hardware.action.NEW_VIDEO")){
+        }else if(intent.getAction().equals("android.hardware.action.NEW_VIDEO")){//测试没什么效果
             MyLog.d("自定义广播","产生了广播,视频广播"+new Date().toString());
         }
     }
