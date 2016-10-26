@@ -39,6 +39,19 @@
                 <category android:name="android.intent.category.HOME" />
             </intent-filter>
         </receiver>
+        <receiver android:name="com.common.libary.receiver.MyCustomBroadcastReceiver">
+            <intent-filter>//
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="custom_broadcast_receiver"/>
+                <action android:name="android.hardware.action.NEW_PICTURE"/>//用户点击拍照的时候的广播 这广播是在文件生成的时候发出的
+                <data android:mimeType="image/*" />
+                <action android:name="android.hardware.action.NEW_VIDEO"/>
+                <data android:mimeType="video/*" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
