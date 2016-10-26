@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getSupportActionBar().hide();//隐藏actionbar
         MyLog.d("MainActivity", "初始化");
         if (AppUtil.isBackground(this)) {
             MyLog.d(MainActivity.class.getSimpleName(), "后台");

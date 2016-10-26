@@ -10,13 +10,20 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
+
+    //执行lint检查，有任何的错误或者警告提示，都会终止构建，我们可以将其关掉。
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true //打开混淆
+            //zipAlignEnabled true //压缩 打开报错了，空对象
+            // 移除无用的resource文件
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -37,5 +44,6 @@ dependencies {
     compile 'com.github.hotchemi:permissionsdispatcher:2.1.3'
     apt 'com.github.hotchemi:permissionsdispatcher-processor:2.1.3'
     //检查更新的库 http://blog.csdn.net/qiang_xi/article/details/52823389
-//    compile 'com.qiangxi.checkupdatelibrary:checkupdatelibrary:1.0.2'
+    //    compile 'com.qiangxi.checkupdatelibrary:checkupdatelibrary:1.0.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
