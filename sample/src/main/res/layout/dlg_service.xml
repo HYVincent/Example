@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <TextView
+        android:id="@+id/chou"
+        android:layout_marginLeft="@dimen/size_15"
+        android:gravity="center"
+        android:background="@drawable/shape_button_background"
+        android:text="丑爆了"
+        android:textSize="@dimen/size_18sp"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
+
+    <TextView
+        android:id="@+id/shuai"
+        android:layout_marginRight="@dimen/size_15"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:background="@drawable/shape_button_background"
+        android:text="帅呆了"
+        android:layout_alignParentRight="true"
+        android:textSize="@dimen/size_18sp"
+        android:layout_width="100dp"
+        android:layout_height="50dp" />
+
+
+</RelativeLayout>

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.common.libary.RequePermissionActivity;
 import com.common.libary.log.MyLog;
 import com.common.libary.service.JobCastielService;
 import com.common.libary.util.AppUtil;
@@ -32,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHello;
     @BindView(R.id.tv_go)
     TextView tvGo;
+
+    @BindView(R.id.tv_service_show_dialog)
+    TextView tvDialog;
 
 
     @Override
@@ -87,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go})
+    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go,R.id.tv_service_show_dialog})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_butterknife:
@@ -101,9 +103,21 @@ public class MainActivity extends AppCompatActivity {
                 startService(new Intent(MainActivity.this, JobCastielService.class));
                 break;
             case R.id.tv_go:
-                Intent intent=new Intent(MainActivity.this, RequePermissionActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+
+                break;
+            case R.id.tv_service_show_dialog:
+                finish();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                            startService(new Intent(MainActivity.this,MyService.class));
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
                 break;
         }
     }
