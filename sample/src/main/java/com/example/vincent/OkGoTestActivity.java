@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.common.libary.log.MyLog;
+import com.common.libary.util.ToastUtil;
+import com.example.vincent.base.MyApplication;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cache.CacheMode;
 import com.lzy.okgo.callback.StringCallback;
@@ -47,7 +49,8 @@ public class OkGoTestActivity extends AppCompatActivity {
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
-                        MyLog.d("result",s);
+//                        MyLog.d("result",s);
+                        ToastUtil.showDefaultToast(getApplicationContext(),s);
                     }
                 });
     }
