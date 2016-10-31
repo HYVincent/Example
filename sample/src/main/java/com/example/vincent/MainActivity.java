@@ -1,7 +1,10 @@
 package com.example.vincent;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,7 +25,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-
     private static ScreenOpenCloseListener listener;
     private static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.btn_butterknife)
@@ -31,11 +33,25 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHello;
     @BindView(R.id.tv_go)
     TextView tvGo;
+    @BindView(R.id.tv_okgo)
+    TextView tvOkGo;
 
     @BindView(R.id.tv_service_show_dialog)
     TextView tvDialog;
 
-
+    /**
+     * 此类写法会隐式的持有Activity对象，可能会造成内存泄漏，解决方法 在onDestroy里面调用handle移除消息
+     */
+    private  Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.arg1==1){
+                MyLog.d(MainActivity.class.getSimpleName(),"收到Handler发来的消息了");
+                ToastUtil.showDefaultToast(MainActivity.this,"收到Handler发来的消息了");
+            }
+            super.handleMessage(msg);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,12 +91,14 @@ public class MainActivity extends AppCompatActivity {
         });
 
         MyLog.d("屏幕分辨率：", SystemUtil.getScreenParameterHeight(this) + "*" + SystemUtil.getScreenParameterHeight(this));
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         listener.unregisterListener();//注意监听屏蔽需要解除注册
+        handler.removeCallbacksAndMessages(null);//非静态引用会持有外部Activity实例，会导致内存泄漏，此处解决内存泄漏，或者改成静态引用
     }
 
     @Override
@@ -89,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go,R.id.tv_service_show_dialog})
+    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go,R.id.tv_service_show_dialog,R.id.tv_okgo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_butterknife:
@@ -103,7 +121,19 @@ public class MainActivity extends AppCompatActivity {
                 startService(new Intent(MainActivity.this, JobCastielService.class));
                 break;
             case R.id.tv_go:
-
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(3000);
+                            Message msg=Message.obtain();
+                            msg.arg1=1;
+                            handler.sendMessage(msg);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
                 break;
             case R.id.tv_service_show_dialog:
                 finish();
@@ -118,6 +148,11 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                 });
+                break;
+            case R.id.tv_okgo:
+                Intent intent = new Intent(MainActivity.this,OkGoTestActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
                 break;
         }
     }

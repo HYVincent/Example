@@ -66,11 +66,24 @@
     **[] $VALUES;
     public *;
 }
+#OkGo网络框架
+#okhttp
+-dontwarn okhttp3.**
+-keep class okhttp3.**{*;}
+
+#okio
+-dontwarn okio.**
+-keep class okio.**{*;}
+
+
+#http://www.open-open.com/lib/view/open1477289497684.html
 
 #不混淆某个类
 -keep public final class com.common.libary.log.MyLog {*;}
--keep public class com.common.libary.listener.SendMsgOnClickListener{ *; }
+
+
 #不混淆某个包下面的所有类
--keep class com.common.libary.util.** { *; }
--keep class com.common.libary.view.** { *; }
+-keep class com.common.libary.listener.** { *; }
+-keep class com.common.libary.netutil.** {*;}
+-keep class com.common.libary.util.** {*;}
 

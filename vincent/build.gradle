@@ -46,4 +46,8 @@ dependencies {
     //检查更新的库 http://blog.csdn.net/qiang_xi/article/details/52823389
     //    compile 'com.qiangxi.checkupdatelibrary:checkupdatelibrary:1.0.2'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //OkGo网络框架 https://github.com/jeasonlzy/okhttp-OkGo  使用之前必须初始化，在extends Application的onCreate(）中 OkGo.init(this);
+    compile 'com.lzy.net:okgo:+'        //版本号使用 + 可以自动引用最新版
+    compile 'com.lzy.net:okrx:+'        //版本号使用 + 可以自动引用最新版
+    compile 'com.lzy.net:okserver:+'    //版本号使用 + 可以自动引用最新版
 }
