@@ -22,7 +22,8 @@ public abstract class JsonObjectCallBack extends AbsCallback<JSONObject>{
 
     @Override
     public JSONObject convertSuccess(Response response) throws Exception {
-        JSONObject jsonObject= JsonObjectConvert.create().convertSuccess(response);
-        return jsonObject;
+        JSONObject result= JsonObjectConvert.create().convertSuccess(response);
+        response.close();
+        return result;
     }
 }

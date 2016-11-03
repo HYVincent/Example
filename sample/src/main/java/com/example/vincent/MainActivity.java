@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MyLog.d("屏幕分辨率：", SystemUtil.getScreenParameterHeight(this) + "*" + SystemUtil.getScreenParameterHeight(this));
+        MyLog.d("屏幕分辨率：", SystemUtil.getScreenParameterWidth(this) + "*" + SystemUtil.getScreenParameterHeight(this));
 
     }
 

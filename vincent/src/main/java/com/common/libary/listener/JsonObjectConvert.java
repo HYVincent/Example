@@ -28,7 +28,8 @@ public class JsonObjectConvert implements Converter<JSONObject> {
 
     @Override
     public JSONObject convertSuccess(Response response) throws Exception {
-        return new JSONObject(response.body().toString());
+        JSONObject result=new JSONObject(response.body().string());
+        return result;
     }
 
 }
