@@ -2,7 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.vincent">
 
+<<<<<<< HEAD
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES"/>
+=======
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+>>>>>>> 646463942a8349533894624870bd3f8f4eb81753
 
     <application
         android:name=".base.MyApplication"
@@ -18,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".OkGoTestActivity"/>
+    <service android:name=".MyService"/>
     </application>
 
 </manifest>

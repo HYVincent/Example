@@ -1,15 +1,19 @@
 package com.example.vincent;
 
+<<<<<<< HEAD
 import android.app.ActivityManager;
+=======
+>>>>>>> 646463942a8349533894624870bd3f8f4eb81753
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.common.libary.RequePermissionActivity;
 import com.common.libary.log.MyLog;
 import com.common.libary.service.JobCastielService;
 import com.common.libary.util.AppUtil;
@@ -25,7 +29,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
-
     private static ScreenOpenCloseListener listener;
     private static final String TAG = MainActivity.class.getSimpleName();
     @BindView(R.id.btn_butterknife)
@@ -34,13 +37,31 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHello;
     @BindView(R.id.tv_go)
     TextView tvGo;
+    @BindView(R.id.tv_okgo)
+    TextView tvOkGo;
 
+    @BindView(R.id.tv_service_show_dialog)
+    TextView tvDialog;
 
+    /**
+     * 此类写法会隐式的持有Activity对象，可能会造成内存泄漏，解决方法 在onDestroy里面调用handle移除消息
+     */
+    private  Handler handler=new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            if(msg.arg1==1){
+                MyLog.d(MainActivity.class.getSimpleName(),"收到Handler发来的消息了");
+                ToastUtil.showDefaultToast(MainActivity.this,"收到Handler发来的消息了");
+            }
+            super.handleMessage(msg);
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getSupportActionBar().hide();//隐藏actionbar
         MyLog.d("MainActivity", "初始化");
         if (AppUtil.isBackground(this)) {
             MyLog.d(MainActivity.class.getSimpleName(), "后台");
@@ -74,13 +95,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        MyLog.d("屏幕分辨率：", SystemUtil.getScreenParameterHeight(this) + "*" + SystemUtil.getScreenParameterHeight(this));
+        MyLog.d("屏幕分辨率：", SystemUtil.getScreenParameterWidth(this) + "*" + SystemUtil.getScreenParameterHeight(this));
+
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         listener.unregisterListener();//注意监听屏蔽需要解除注册
+        handler.removeCallbacksAndMessages(null);//非静态引用会持有外部Activity实例，会导致内存泄漏，此处解决内存泄漏，或者改成静态引用
     }
 
     @Override
@@ -89,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go})
+    @OnClick({R.id.btn_butterknife, R.id.tv_hello,R.id.tv_go,R.id.tv_service_show_dialog,R.id.tv_okgo})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_butterknife:
@@ -111,7 +134,36 @@ public class MainActivity extends AppCompatActivity {
 
                 break;
             case R.id.tv_go:
-                Intent intent=new Intent(MainActivity.this, RequePermissionActivity.class);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(3000);
+                            Message msg=Message.obtain();
+                            msg.arg1=1;
+                            handler.sendMessage(msg);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }).start();
+                break;
+            case R.id.tv_service_show_dialog:
+                finish();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(2000);
+                            startService(new Intent(MainActivity.this,MyService.class));
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                break;
+            case R.id.tv_okgo:
+                Intent intent = new Intent(MainActivity.this,OkGoTestActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 break;

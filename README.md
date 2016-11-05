@@ -121,6 +121,13 @@ public class MyApplication extends Application {
 </br> timeStamp()取得当前时间戳（精确到秒）
 #### ExitUtil 连点两次退出
 </br>isQuit(Context context,String exitMsg) 连续点击两次退出，此方法在onBackPressed()中调用，应该去掉父类回调方法
+</br>example:
+```java
+ @Override
+    public void onBackPressed() {
+        ExitUtil.isQuit(MainActivity.this,"再按一次退出app");
+    }
+```
 #### FileUtil 文件工具类
 </br>WriteProperties(Context context, String fileName, String pKey, String pValue) 写入数据 键值对存
 </br>getValueByKey(Context context, String fileName, String key) 读取数据 键值对取

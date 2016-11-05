@@ -18,7 +18,6 @@ import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 
-import com.common.libary.RequePermissionActivity;
 import com.common.libary.log.MyLog;
 import com.common.libary.util.AppUtil;
 import com.common.libary.util.ScreenOpenCloseListener;
