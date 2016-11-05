@@ -1,9 +1,6 @@
 package com.example.vincent;
 
-<<<<<<< HEAD
 import android.app.ActivityManager;
-=======
->>>>>>> 646463942a8349533894624870bd3f8f4eb81753
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
