@@ -85,9 +85,9 @@ public class JulieService extends Service {
     public void onCreate() {
         super.onCreate();
         MyLog.d(TAG, "onCreate");
-        Intent intent=new Intent(JulieService.this,RequePermissionActivity.class);
+        /*Intent intent=new Intent(JulieService.this,RequePermissionActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        startActivity(intent);*/
         mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         try {
             play();//后台播放空音乐，此方法可以在系统直接清理的时候不清理本app，但是用户可以上滑结束app

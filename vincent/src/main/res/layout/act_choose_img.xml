@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/ll_select"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_background"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_select01"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tv_select01"
+                style="@style/textstyle"
+                android:layout_weight="1"
+                android:text="拍照"
+                android:textColor="@color/green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/white"
+            android:visibility="visible" >
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="@color/bg_color" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_select02"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="10dp" >
+
+            <TextView
+                android:id="@+id/tv_select02"
+                style="@style/textstyle"
+                android:layout_weight="1"
+                android:text="从相册中选择"
+                android:textColor="@color/green" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_select03"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/size_10"
+        android:background="@drawable/item_background"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp" >
+
+        <TextView
+            style="@style/textstyle"
+            android:layout_weight="1"
+            android:text="取消"
+            android:textColor="@color/site_detail_text_color" />
+    </LinearLayout>
+
+</LinearLayout>
