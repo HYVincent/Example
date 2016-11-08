@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
@@ -29,6 +30,9 @@ android {
 //            keyPassword "******"
         }
     }
+    greendao {
+        targetGenDir 'src/main/java'
+    }
 
     buildTypes {
         debug {
@@ -55,20 +59,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             //签名
             signingConfig signingConfigs.release
-
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        // 输出apk名称为app_v1.0_2015-xx-xx_xxxx.apk
-                        //def fileName = "app_v${defaultConfig.versionName}_${releaseTime()}.apk"
-//                        def fileName = "app_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
-//                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
-                }
-            }
         }
-
     }
 }
 
@@ -77,11 +68,11 @@ dependencies {
     //butterknife 注解 配置参考：http://blog.csdn.net/pkandroid/article/details/51959548
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     compile 'com.jakewharton:butterknife:8.4.0'
-   /* androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.supaport', module: 'support-annotations'
-    }) }*/
-
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+            exclude group: 'com.android.supaport', module: 'support-annotations'
+        })
     compile 'com.android.support:appcompat-v7:25.0.0'
     testCompile 'junit:junit:4.12'
     compile project(':vincent')
+    compile 'org.greenrobot:greendao:3.2.0'//http://www.tuicool.com/articles/63I3EfB
 }
