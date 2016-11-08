@@ -1,5 +1,6 @@
 package com.example.vincent;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             MyLog.d(MainActivity.class.getSimpleName(), "前台");
         }
+        startService(new Intent(MainActivity.this, JobCastielService.class));
         MyLog.d("天数", String.valueOf(DateUtil.getDaysOfCurMonth()));
 
         if (FileUtil.checkExternalSDExists()) {//检查时候有外置ＳＤ卡
@@ -116,9 +118,17 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.tv_hello:
                 MyLog.d("Click");
+                //还有个API内部的方法，ActivityManager.forceStopPackages(String packageName)
+//                可以使用，
+//                并且好像很多人都热衷反射,来使用
 //                NotificationUtils.sendNotification(MainActivity.this,"com.example.vincent.MainActivity",R.mipmap.ic_launcher,"哈哈","消息..");
 //                SystemUtilt.goXiaoMiPermissionManagerActivity(MainActivity.this,"打开失败");
-                startService(new Intent(MainActivity.this, JobCastielService.class));
+//                startService(new Intent(MainActivity.this, JobCastielService.class));
+                ActivityManager a=(ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+                a.killBackgroundProcesses("com.shangyi.netty");
+
+
+
                 break;
             case R.id.tv_go:
                 new Thread(new Runnable() {

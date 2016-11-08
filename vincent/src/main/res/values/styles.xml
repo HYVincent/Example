@@ -9,5 +9,18 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
-    
+
+    <style name="textstyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+    <style name="select_anim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/pop_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/pop_exit_anim</item>
+    </style>
 </resources>
