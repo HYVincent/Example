@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             XLog.d(MainActivity.class.getSimpleName(), "前台");
         }
-        XLog.d("天数", String.valueOf(DateUtil.getDaysOfCurMonth()));
+        XLog.d("天数"+String.valueOf(DateUtil.getDaysOfCurMonth()));
 
         if (FileUtil.checkExternalSDExists()) {//检查时候有外置ＳＤ卡
             XLog.d(MainActivity.class.getSimpleName(), "是");

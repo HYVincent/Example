@@ -34,8 +34,7 @@ public class MyApplication extends Application {
         OkGo.init(this);//网络框架OKGo初始化
 //        MyLog.init("sample");//初始化 must
 //        XLog.init(LogLevel.ALL);//不带边框
-
-        MyLog.setSwitch(true);//日志开关，默认为关，debug模式需要手动打开
+//        MyLog.setSwitch(true);//日志开关，默认为关，debug模式需要手动打开
 
         LogConfiguration config = new LogConfiguration.Builder()
                 .tag("MY_TAG")                                         // 指定 TAG，默认为 "X-LOG"
