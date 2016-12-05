@@ -24,14 +24,18 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        final AlertDialog dialog = new AlertDialog.Builder(MyService.this).create();
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//set background was transparent
-        dialog.setTitle("Dialog");
-        dialog.setMessage("我是来自MyService的Dialog，弹出我是需要悬浮窗权限的");
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//需要添加的语句
-        dialog.show();
+        try {
+            final AlertDialog dialog = new AlertDialog.Builder(MyService.this).create();
+            dialog.setCanceledOnTouchOutside(false);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));//set background was transparent
+            dialog.setTitle("Dialog");
+            dialog.setMessage("我是来自MyService的Dialog，弹出我是需要悬浮窗权限的");
+            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);//需要添加的语句
+            dialog.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
 ;

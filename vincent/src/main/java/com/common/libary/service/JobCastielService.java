@@ -1,5 +1,6 @@
 package com.common.libary.service;
 
+import android.annotation.TargetApi;
 import android.app.job.JobInfo;
 import android.app.job.JobParameters;
 import android.app.job.JobScheduler;
@@ -8,7 +9,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 
 import com.common.libary.log.MyLog;
 import com.common.libary.util.AppUtil;
@@ -24,7 +24,7 @@ import com.common.libary.util.AppUtil;
  * 修改备注：
  * 十月
  */
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class JobCastielService extends JobService {
     private int kJobId = 0;
     

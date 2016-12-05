@@ -1,5 +1,6 @@
 package com.common.libary.util;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.ActivityManager.RunningTaskInfo;
@@ -9,7 +10,9 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.util.Log;
+import android.view.View;
 
 
 import com.common.libary.log.MyLog;
@@ -38,6 +41,30 @@ public class AppUtil {
 			e.printStackTrace();
 			MyLog.w("AppUtils->startOtherAppActivity","启动失败了，我猜测是没有权限吧");
 			ToastUtil.showDefaultToast(context,"启动失败");
+		}
+	}
+
+	/**
+	 * 全屏
+	 * @param activity
+	 */
+	public static void fullScreen(Activity activity){
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+			((Activity) activity).getWindow().getDecorView().setSystemUiVisibility(
+					View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+							| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+							| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+							| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+							| View.SYSTEM_UI_FLAG_FULLSCREEN
+							| View.SYSTEM_UI_FLAG_IMMERSIVE);//API19
+		} else {
+			((Activity) activity).getWindow().getDecorView().setSystemUiVisibility(
+					View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+							| View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+							| View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+							| View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+							| View.SYSTEM_UI_FLAG_FULLSCREEN
+			);
 		}
 	}
 

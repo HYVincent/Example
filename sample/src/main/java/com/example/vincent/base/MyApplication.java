@@ -28,10 +28,14 @@ import com.lzy.okgo.OkGo;
  */
 
 public class MyApplication extends Application {
+
+    private static MyApplication app;
+
     @Override
     public void onCreate() {
         super.onCreate();
         OkGo.init(this);//网络框架OKGo初始化
+        app=this;
 //        MyLog.init("sample");//初始化 must
 //        XLog.init(LogLevel.ALL);//不带边框
 //        MyLog.setSwitch(true);//日志开关，默认为关，debug模式需要手动打开
@@ -64,5 +68,9 @@ public class MyApplication extends Application {
                 systemPrinter,
                 filePrinter);
 
+    }
+
+    public static MyApplication getApp() {
+        return app;
     }
 }

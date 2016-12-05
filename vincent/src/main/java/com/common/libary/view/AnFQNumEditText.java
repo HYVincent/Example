@@ -1,9 +1,9 @@
 package com.common.libary.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
@@ -180,8 +180,8 @@ public  class AnFQNumEditText extends RelativeLayout {
         }
         public void beforeTextChanged(CharSequence s, int start, int count,int after) {
         }
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-        public void onTextChanged(CharSequence s, int start, int before,int count) {
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (etContent.getText().length() == start && start == 0) {
                 tvSend.setClickable(false);
                 tvSend.setBackground(getResources().getDrawable(R.drawable.shape_tv_no_send_msg));
